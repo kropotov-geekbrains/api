@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.4'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
     id 'java'
 }
 
@@ -19,7 +19,6 @@ ext {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
@@ -31,6 +30,9 @@ dependencyManagement {
     }
 }
 
-test {
-    useJUnitPlatform()
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = false
 }
